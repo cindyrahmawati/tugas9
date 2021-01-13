@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>TokoCindy | Log in</title>
+  <title>Beli Hp Kuyy | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,14 +21,14 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="{{url('/index')}}"><b>Silahkan Login Dahulu</b></a>
+    <a href="{{url('index')}}"><b>Silahkan Login Dahulu</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="{{url('/index')}}" method="get">
+      <form action="{{url('index')}}" method="get">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email">
           <div class="input-group-append">
@@ -56,7 +56,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <a href="{{url('/index')}}">
+            <a href="{{url('beranda')}}">
             <button type="submit" class="btn btn-primary btn-block">Sign In</button></a>
           </div>
           <!-- /.col -->

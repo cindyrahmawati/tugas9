@@ -46,8 +46,8 @@
         <ul>
           <li class="active"><a href="{{ url ('/index')}}">Home</a></li>
           <li><a href="{{ url ('/produk')}}">Produk</a></li>
+          <li><a href="{{ url ('/kategori')}}">kategori</a></li> 
           <li><a href="{{ url ('/login')}}">Login</a></li>
-          <li><a href="{{ url ('/kategori')}}">kategori</a></li>
           <li><a href="{{ url('/registrasi') }}">Register</a></li>
           
 
@@ -148,6 +148,40 @@
 
       </div>
     </section><!-- End About Section -->
+    <!-- ======= Team Section ======= -->
+    <section class="team section-bg">
+      <div class="container">
+
+        <div class="row">
+          @foreach($list as $item)
+           <div class="col-lg-3 col-md-3 mt-4 d-flex align-items-stretch">
+             <div class="member">
+                <div class="member-img">
+                    <a href="{{url('detail', $item->id)}}">
+                       <img src="{{url("public/$item->foto")}}" alt="" class="img-fluid">
+                    </div>
+                <div class="member-info">
+                    <h5>{{$item->nama}}</h5>
+                    <span>Rp {{number_format($item->harga)}}</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+          @endforeach
+        </div>
+        <div class="row">
+          <div class="col-md-12 mt-5">
+            <div class="float-right">
+              {{$list->links()}}
+            </div>
+          </div>
+       </div>
+
+          
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
 
     <!-- ======= Footer ======= -->
     <div class="container d-md-flex py-4">

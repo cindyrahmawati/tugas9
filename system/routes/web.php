@@ -85,5 +85,5 @@ Route::get('produk' , [ClientProdukController::class, 'showProduk']);
 Route::get('kategori' , [ClientProdukController::class, 'showKategori']);
 Route::get('detail' , [ClientProdukController::class, 'showDetail']);
 
-
+Route::get('test-collection', [HomeController::class, 'testCollection']);
 

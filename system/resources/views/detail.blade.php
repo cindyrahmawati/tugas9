@@ -46,7 +46,7 @@
   </header><!-- End Header -->
 
   <div class="container pt-5">
-@foreach($list_produk as $produk)
+
     <div class="row">
       <div class="col-md-12 mt-5">
         <div class="card">
@@ -58,18 +58,19 @@
             <hr>
             <p>
               Rp. {{number_format($produk->harga)}}  |
-              Stok { {$produk->stok}}  |
+              Stok. {{$produk->stok}}  |
               Berat {{$produk->berat}} gr
             </p>
             <p>
               {!! nl2br($produk->deskripsi) !!}
             </p>
-            @endforeach
+
           </div>
         </div>
       </div>
     </div>
   </div>  
+
 
   <!-- ======= Footer ======= -->
     <div class="container d-md-flex py-4">
