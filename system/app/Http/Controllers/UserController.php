@@ -1,8 +1,9 @@
 <?php 
 
 namespace App\Http\Controllers;
-use\App\Models\User;
-use\App\Models\UserDetail;
+use App\Models\User;
+use App\Models\UserDetail;
+use App\Http\Requests\UserStoreRequest;
 
 class UserController extends Controller {
 	function index(){
@@ -14,12 +15,20 @@ class UserController extends Controller {
 	function create(){
 		return view('admin/user.create');
 	}
-	function store(){
+	function store(UserStoreRequest $request){
+
+		// $validated = request()->validate([
+		// 	'nama' => ['required'],
+		// 	'username' => ['required'],
+		// 	'email' => ['required']
+		// ]); 
+
 		$user = new User;
 		$user->nama = request ('nama');
 		$user->username = request ('username');
 		$user->email = request ('email');
-		$user->password = bcrypt(request ('password'));
+		$user->password = request ('password');
+		$user->jenis_kelamin = 1;
 		$user->save();
 
 		$userDetail = new UserDetail;
@@ -29,7 +38,10 @@ class UserController extends Controller {
 
 		return redirect('admin/user')->with('success', 'Data Berhasil Ditambahkan');
 	}
-	function show(User $user){
+	function show($user){
+		// $loggedUser = request()->user();
+		// if($loggedUser->id != $user->id) return abort(403);
+		$user = User::findOrFail($user);
 		$data['user'] = $user; 
 		return view ('admin/user.show', $data);	
 		
@@ -43,7 +55,7 @@ class UserController extends Controller {
 		$user->nama = request ('nama');
 		$user->username = request ('username');
 		$user->email = request ('email');
-		if(request('password')) $user->password = bcrypt(request ('password'));
+		if(request('password')) $user->password = (request ('password'));
 		$user->save();
 
 		return redirect('admin/user')->with('success', 'Data Berhasil Diedit');;
